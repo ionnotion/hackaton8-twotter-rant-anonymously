@@ -52,23 +52,27 @@ const deleteTwotButton = document.getElementById("delete-twot")
 console.log(deleteTwotButton.parentNode)
 let twotCounter = 0
 
-submitFeedButton.addEventListener('click', function () {
-    if (!feedBox.value) {
-        return alert('Silahkan masukkan keluhanmu')
-    }
+// submitFeedButton.addEventListener('click', function () {
+//     if (!feedBox.value) {
+//         return alert('Silahkan masukkan keluhanmu')
+//     }
     
-    let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
-    let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`Twot${twotCounter}`)
-    twotCounter++
-    /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
+//     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
+//     let divTwot = document.createElement('div') // how to add class to an element
+//     divTwot.classList.add(`Twot${twotCounter}`)
+//     twotCounter++
+//     /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
-    */
-    feedList.append(divTwot)
-})
+//     */
+//     feedList.append(divTwot)
+// })
 
 deleteTwotButton.addEventListener('click', function () {
-       
-    deleteTwotButton.parentNode.remove()
+
+    console.log('click!')
+    let text = `deleted WOT`
+    deleteTwotButton.parentNode.childNodes[1].innerText = text
+    deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
+    deleteTwotButton.remove()
 })
