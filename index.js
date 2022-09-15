@@ -1,0 +1,1 @@
+//RNG untuk session ID
