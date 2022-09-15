@@ -9,7 +9,6 @@ function generateSessionId() {
         }
     output = `#${strNum}`
     return output
-
 }
 
 function getRndInteger(min, max) { //random untuk profile picture user
@@ -26,23 +25,37 @@ let userSessionIdElement = document.getElementById('session-id')
 let userDisplayNameElement = document.getElementById('display-name')
 let userProfilePictureElement = document.getElementById('profile-picture')
 
-let feedBox = document.getElementById('feed-box')
-let topicSelectorRadio = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
-let selectTopicCheckbox = document.getElementById(`topic-checkbox`) // checkbox untuk menampilkan TWOT yang relevan
+    
+    window.onchange = function() {
+        userDisplayNameElement.innerText = displayName
+        userSessionIdElement.innerText  = sessionId
+        userProfilePictureElement.src   = profilePicture
+    }
+    // console.log(displayName)
+    // console.log(sessionId)
+    // console.log(profilePicture)
 
-let displayNameInputElement = document.getElementById(`display-name-input`)
+    console.log(userSessionIdElement.innerText)
+    console.log(userDisplayNameElement.innerText)
+    console.log(userProfilePictureElement.src)
+
+
+let feedBox = document.getElementById("feed-box")
+let topicSelectorRadio = document.getElementById("topic-selector") // radio untuk memilih topic TWOT
+let selectTopicCheckbox = document.getElementById("topic-checkbox") // checkbox untuk menampilkan TWOT yang relevan
+
+let displayNameInputElement = document.getElementById("display-name-input")
 
 const submitDisplayNameButton = document.getElementById("signIn")
 
-const submitFeedButton = document.getElementById('submit-twot') // elemen button untuk submit feed
+const submitFeedButton = document.getElementById("submit-twot") // elemen button untuk submit feed
 
-const deleteTwotButton = document.getElementById(`delete-twot`)
+const deleteTwotButton = document.getElementById("delete-twot")
 
 let twotCounter = 0
 
 submitDisplayNameButton.addEventListener('click', function () {
     
-    console.log(`terdengar!`)
     let displayNameCheck = displayNameInputElement.value
     if (displayNameCheck === '') {
         return alert('Silahkan masukkan nama yang ingin ditampilkan')
@@ -57,9 +70,11 @@ submitDisplayNameButton.addEventListener('click', function () {
     }
 
     // location.href = "index.html"  // pindah ke page selanjutnya?
-    userDisplayNameElement = displayNameCheck
-    userSessionIdElement = sessionId
-    userProfilePictureElement = profilePicture
+    // console.log(displayNameCheck)
+        userDisplayNameElement.innerText = displayNameCheck
+        userSessionIdElement.innerText = sessionId
+        userProfilePictureElement.src = profilePicture
+    // console.log(sessionId)
 })
 
 displayNameInputElement.addEventListener('input', function () {
