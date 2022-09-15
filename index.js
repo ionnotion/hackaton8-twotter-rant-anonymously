@@ -71,8 +71,10 @@ let twotCounter = 0
 deleteTwotButton.addEventListener('click', function () {
 
     console.log('click!')
-    let text = `deleted WOT`
-    deleteTwotButton.parentNode.childNodes[1].innerText = text
-    deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
-    deleteTwotButton.remove()
+    if (confirm("Delete WOT?")) {
+        let text = `deleted WOT`
+        deleteTwotButton.parentNode.childNodes[1].innerText = text
+        deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
+        deleteTwotButton.remove()
+    }
 })
