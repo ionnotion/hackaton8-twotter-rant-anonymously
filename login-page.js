@@ -8,7 +8,7 @@ submitDisplayNameButton.addEventListener('click', function () {
         return alert('Silahkan masukkan nama yang ingin ditampilkan')
     }
     
-    if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
+    if (displayNameCheck.length < 4 || displayNameCheck.length > 15) {
         return alert('Masukkan display name dengan 4-15 alphabet')
     }
 
@@ -26,24 +26,24 @@ displayNameInputElement.addEventListener('input', function () {
     
     let displayNameCheck = displayNameInputElement.value
     let isNotEmpty = false
-    let isMoreThen4 = false
+    let is4OrMore = false
     let isAlphabet = false
     
     if (displayNameCheck !== '') {
         isNotEmpty = true
     }
     
-    if (displayNameCheck.length > 4 && displayNameCheck.length < 15) {
-        isMoreThen4 = true
+    if (displayNameCheck.length >= 4 && displayNameCheck.length < 15) {
+        is4OrMore = true
     }
 
     if ((/^[a-zA-Z]+$/.test(displayNameCheck))) {
         isAlphabet = true
     }
 
-    console.log(isNotEmpty,isMoreThen4,isAlphabet)
+    console.log("isNotEmpty:",isNotEmpty," isMoreThan4:",is4OrMore," isAlphabet: ",isAlphabet)
 
-    if(isNotEmpty && isMoreThen4 && isAlphabet) {
+    if(isNotEmpty && is4OrMore && isAlphabet) {
         actionName.action = 'index.html'
     } else {
         actionName.action = ""

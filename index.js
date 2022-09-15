@@ -30,6 +30,7 @@ function updateUserData() {
     userProfilePictureElement.src = profilePicture
 
     sessionStorage.removeItem("displayName");
+    sessionStorage.setItem("sessionId", sessionId)
 }
 
 updateUserData()
