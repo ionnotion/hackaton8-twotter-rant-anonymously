@@ -1,10 +1,11 @@
-function generateSessionId() { //RNG untuk session ID
+//RNG untuk session ID
+function generateSessionId() {
     let strNum = ''
     let output = ''
     
-    while (strNum.length < 9){ //output 9 digit untuk digunakan
-        let number = Math.floor(Math.random()*10)
-        strNum+= number.toString();
+        while (strNum.length < 9){
+            let number = Math.floor(Math.random()*10)
+            strNum+= number.toString();
         }
     output = `#${strNum}`
     return output
@@ -15,10 +16,8 @@ function getRndInteger(min, max) { //random untuk profile picture user
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-
-
 let profilePictureArr = ["hackaton8/profile_picture_comp/1.jpg","hackaton8/profile_picture_comp/2.jpg","hackaton8/profile_picture_comp/3.jpg","hackaton8/profile_picture_comp/4.jpg","hackaton8/profile_picture_comp/5.jpg"] //url profile picture user
-                                                                                    // 3 data user, classnya: 
+                // 3 data user, classnya: 
 let sessionId = generateSessionId()                                                 // session-id
 let displayName                                                                     // display-name
 let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] // profile-picture
@@ -41,17 +40,16 @@ const deleteTwotButton = document.getElementById(`delete-twot`)
 
 let twotCounter = 0
 
-// console.log(submitDisplayNameButton)
-// console.log(document)
 submitDisplayNameButton.addEventListener('click', function () {
     
     console.log(`terdengar!`)
     let displayNameCheck = displayNameInputElement.value
-    if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
-        return alert('Masukkan display name dengan 4-15 alphabet')
-    }
     if (displayNameCheck === '') {
         return alert('Silahkan masukkan nama yang ingin ditampilkan')
+    }
+    
+    if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
+        return alert('Masukkan display name dengan 4-15 alphabet')
     }
 
     if (!(/^[a-zA-Z]+$/.test(displayNameCheck))) {
@@ -71,30 +69,16 @@ submitFeedButton.addEventListener('click', function () {
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`twot${twotCounter}`)
+    divTwot.classList.add(`Twot${twotCounter}`)
     twotCounter++
-    divTwot.innerHTML = ""
-
     /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
     */
     feedList.append(divTwot)
-    alert(`Jawaban ${answer}`)
 })
 
 deleteTwotButton.addEventListener('click', function () {
         
-    let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
-    let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`twot${twotCounter}`)
-    twotCounter++
-    divTwot.innerHTML = ""
-
-    /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
-    
-
-    */
-    feedList.append(divTwot)
-    alert(`Jawaban ${answer}`)
+   
 })
