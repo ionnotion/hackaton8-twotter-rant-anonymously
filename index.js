@@ -77,9 +77,6 @@ submitFeedButton.addEventListener('click', function () {
     if(!twotTopic) {
         return alert(`Silahkan pilih topik keluhan`)
     }
-
-
-    let twotInput = twotTextInputElement.value
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
@@ -111,6 +108,11 @@ submitFeedButton.addEventListener('click', function () {
           
     feedList.prepend(divTwot) 
     twotCounter++
+    twotTextInputElement.value = ""
+    topicSelectorGaming.removeAttribute('checked')
+    topicSelectorSport.removeAttribute('checked')
+    topicSelectorMusicMovies.removeAttribute('checked')
+    alert("U WOTTED!")
 })
 
 deleteTwotButton.addEventListener('click', function () {
