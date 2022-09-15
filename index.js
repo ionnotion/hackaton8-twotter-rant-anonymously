@@ -16,10 +16,15 @@ function getRndInteger(min, max) { //random untuk profile picture user
 }
 
 let profilePictureArr = ["","","","",""] //url profile picture user
+                                                                                    // 3 data user, classnya: 
+let sessionId = generateSessionId()                                                 // session-id
+let displayName                                                                     // display-name
+let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] // profile-picture
 
-let sessionId = generateSessionId()                                                 // 3 data user
-let displayName                                                                     //
-let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] //
+
+let userSessionIdElement = document.getElementById('session-id')
+let userDisplayNameElement = document.getElementById('display-name')
+let userProfilePictureElement = document.getElementById('profile-picture')
 
 let feedBox = document.getElementById('feed-box')
 let topicSelectorRadio = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
@@ -37,7 +42,7 @@ submitFeedButton.addEventListener('click', function () {
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`Twot${twotCounter}`)
+    divTwot.classList.add(`twot${twotCounter}`)
     twotCounter++
     divTwot.innerHTML = ""
 
@@ -59,11 +64,13 @@ submitDisplayNameButton.addEventListener('click', function () {
     if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
         return alert('Masukkan display name dengan 4-15 alphabet')
     }
-    
+
     if (!(/^[a-zA-Z]+$/.test(displayNameCheck))) {
         return alert('Display name tidak boleh berisi angka atau symbol')
     }
-                                        // 
+
+    userSessionIdElement = sessionId
+    userDisplayNameElement = displayNameCheck
+    userProfilePictureElement = profilePicture
     window.location.href = "main.html"  // pindah ke page selanjutnya?
 })
-
