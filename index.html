@@ -111,18 +111,23 @@
       <!-- Tweet Box Message End -->
       
       <!-- Tweet -->
-      <div class="border border-gray-200 dark:border-dim-200 cursor-pointer pb-4 ">
+      <div class="feed-list border border-gray-200 dark:border-dim-200 cursor-pointer pb-4 ">
 
         <!-- PROFIL-->
         <div class="flex p-4 pb-0">
-          <img class="h-9 w-9 rounded-full "
+          <img class="profile-picture h-9 w-9 rounded-full "
             src="https://pbs.twimg.com/profile_images/1444753598328496128/hCCopfyz_400x400.jpg" alt="" />
             <div class="xl:flex flex-col ml-2">
               <h4 class="text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
               <p class="text-gray-400 text-sm">@bangjago</p>
             </div>
+          <p class="display-name ml-2 flex flex-shrink-0 items-center font-medium text-gray-800 dark:text-white">
+            masih beta ngab
+            <span class="session-id ml-1 text-sm leading-5  text-gray-400">
+              @masihbetangab
+            </span>
           </p>
-        </div>
+        </div>        
         <!-- PROFIL-->
         
          <!-- CARD TWEET-->
@@ -133,6 +138,13 @@
           <button href="" class="font-bold bg-red-600  text-white rounded-full mt-6 px-6  flex items-center hover:bg-red-900">
             Delete
           </button>
+        <div class="twot pl-8 xl:pl-16 pr-4">
+          <p class="twot w-auto font-medium text-gray-800 dark:text-white ">
+            pesulap merah adu mekanik  sama samsudin
+          </p>
+          <img class="twot rounded-2xl border border-gray-600 my-3 mr-2 w-full"
+            src="https://awsimages.detik.net.id/community/media/visual/2022/07/27/pesulap-merah-dan-gus-samsudin_43.jpeg?w=700&q=90"
+            alt="" />
         </div>
         <!-- CARD TWEET END-->
 
@@ -147,14 +159,14 @@
       
        <!--USER PROFIL-->
        <div class="w-14 xl:w-full mx-auto mt-auto flex  justify-betwee mb-2  rounded-full p-2 cursor-pointer ">
-        <img class="w-10 h-10 rounded-full"
+        <img class="profile-pictur w-10 h-10 rounded-full"
           src="https://pbs.twimg.com/profile_images/1444753598328496128/hCCopfyz_400x400.jpg" alt="" />
 
 
           <!-- PERUBAHAN -->
         <div class="xl:flex flex-col ml-2">
-          <h4 class="text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
-          <p class="text-gray-400 text-sm">@bangjago</p>
+          <h4 class="display-name text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
+          <p class="session-id text-gray-400 text-sm">@bangjago</p>
         </div>
         <!-- PERUBAHAN END-->
 
@@ -194,7 +206,9 @@
     </div>
 
   </div>
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script href="index.js"></script>
 </body>
 
 </html>
