@@ -2,11 +2,13 @@ function generateSessionId() { //RNG untuk session ID
     let strNum = ''
     let output = ''
     
-    while (strNum.length < 9){
+    while (strNum.length < 9){ //output 9 digit untuk digunakan
         let number = Math.floor(Math.random()*10)
         strNum+= number.toString();
-    }
-    output = `#${strNum}` //output 9 digit untuk digunakan
+        }
+    output = `#${strNum}`
+    return output
+
 }
 
 function getRndInteger(min, max) { //random untuk profile picture user
@@ -29,7 +31,6 @@ const submitFeedButton = document.getElementById('submit-feed') // elemen button
 let twotCounter = 0
 
 submitFeedButton.addEventListener('click', function () {
-
     if (!feedBox.value) {
         return alert('Silahkan masukkan keluhanmu')
     }
@@ -49,7 +50,7 @@ submitFeedButton.addEventListener('click', function () {
 })
 
 submitDisplayNameButton.addEventListener('click', function () {
-    
+    console.log(alphabet.toUpperCase(0));
     let displayNameCheck = submitDisplayNameButton.value
     if (displayNameCheck === '') {
         return alert('Silahkan masukkan nama yang ingin ditampilkan')
@@ -58,12 +59,10 @@ submitDisplayNameButton.addEventListener('click', function () {
     if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
         return alert('Masukkan display name dengan 4-15 alphabet')
     }
-
-    var hasNumber = /\d/;
-      hasNumber.test(displayNameCheck)
     
-    if (hasNumber) return alert(`Display name tidak boleh mengandung angka dan symbol`)
-    displayName = displayNameCheck      // kalau dipush assign value ke display name
+    if (!(/^[a-zA-Z]+$/.test(displayNameCheck))) {
+        return alert('Display name tidak boleh berisi angka atau symbol')
+    }
                                         // 
     window.location.href = "main.html"  // pindah ke page selanjutnya?
 })
