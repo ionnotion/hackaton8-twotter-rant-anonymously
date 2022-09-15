@@ -56,10 +56,42 @@ submitDisplayNameButton.addEventListener('click', function () {
         return alert('Display name tidak boleh berisi angka atau symbol')
     }
 
-    location.href = "index.html"  // pindah ke page selanjutnya?
+    // location.href = "index.html"  // pindah ke page selanjutnya?
     userDisplayNameElement = displayNameCheck
     userSessionIdElement = sessionId
     userProfilePictureElement = profilePicture
+})
+
+displayNameInputElement.addEventListener('input', function () {
+
+    let actionName = document.getElementById('loginprocess')
+    console.log(actionName)
+    
+    let displayNameCheck = displayNameInputElement.value
+    let isNotEmpty = false
+    let isMoreThen4 = false
+    let isAlphabet = false
+    
+    if (displayNameCheck !== '') {
+        isNotEmpty = true
+    }
+    
+    if (displayNameCheck.length > 4 && displayNameCheck.length < 15) {
+        isMoreThen4 = true
+    }
+
+    if ((/^[a-zA-Z]+$/.test(displayNameCheck))) {
+        isAlphabet = true
+    }
+
+    console.log(isNotEmpty,isMoreThen4,isAlphabet)
+
+    if(isNotEmpty && isMoreThen4 && isAlphabet) {
+        actionName.action = 'index.html'
+    } else {
+        actionName.action = ""
+    }
+
 })
 
 submitFeedButton.addEventListener('click', function () {
