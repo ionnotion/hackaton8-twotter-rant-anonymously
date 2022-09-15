@@ -1,5 +1,4 @@
-//RNG untuk session ID
-function generateSessionId() {
+function generateSessionId() { //RNG untuk session ID
     let strNum = ''
     let output = ''
     
@@ -7,17 +6,27 @@ function generateSessionId() {
         let number = Math.floor(Math.random()*10)
         strNum+= number.toString();
     }
-    output = `#${strNum}`
+    output = `#${strNum}` //output 9 digit untuk digunakan
 }
 
-let sessionId = generateSessionId()
-let displayName
+function getRndInteger(min, max) { //random untuk profile picture user
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+let profilePictureArr = ["","","","",""] //url profile picture user
+
+let sessionId = generateSessionId()                                                 // 3 data user
+let displayName                                                                     //
+let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] //
+
 let feedBox = document.getElementById('feed-box')
-let topicSelector = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
-let twotCounter = 0
+let topicSelectorRadio = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
+let selectTopicCheckbox = document.getElementById(`topic-checkbox`) // checkbox untuk menampilkan TWOT yang relevan
 const submitDisplayNameButton = document.getElementById('submit-display-name')
 const submitFeedButton = document.getElementById('submit-feed') // elemen button untuk submit feed
 // const deleteTwotButton = document.q
+
+let twotCounter = 0
 
 submitFeedButton.addEventListener('click', function () {
 
@@ -29,6 +38,8 @@ submitFeedButton.addEventListener('click', function () {
     let divTwot = document.createElement('div') // how to add class to an element
     divTwot.classList.add(`Twot${twotCounter}`)
     twotCounter++
+    divTwot.innerHTML = ""
+
     /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
@@ -48,7 +59,7 @@ submitDisplayNameButton.addEventListener('click', function () {
         return alert('Masukkan display name dengan 4-15 alphabet')
     }
 
-    var hasNumber = /\d/;   
+    var hasNumber = /\d/;
       hasNumber.test(displayNameCheck)
     
     if (hasNumber) return alert(`Display name tidak boleh mengandung angka dan symbol`)
@@ -56,3 +67,4 @@ submitDisplayNameButton.addEventListener('click', function () {
                                         // 
     window.location.href = "main.html"  // pindah ke page selanjutnya?
 })
+
