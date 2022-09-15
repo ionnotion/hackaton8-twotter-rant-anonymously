@@ -71,7 +71,6 @@ deleteTwotButton.addEventListener('click', function () {
 })
 
 submitDisplayNameButton.addEventListener('click', function () {
-    console.log(alphabet.toUpperCase(0));
     let displayNameCheck = submitDisplayNameButton.value
     if (displayNameCheck === '') {
         return alert('Silahkan masukkan nama yang ingin ditampilkan')
