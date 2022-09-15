@@ -1,10 +1,11 @@
-function generateSessionId() { //RNG untuk session ID
+//RNG untuk session ID
+function generateSessionId() {
     let strNum = ''
     let output = ''
     
-    while (strNum.length < 9){ //output 9 digit untuk digunakan
-        let number = Math.floor(Math.random()*10)
-        strNum+= number.toString();
+        while (strNum.length < 9){
+            let number = Math.floor(Math.random()*10)
+            strNum+= number.toString();
         }
     output = `#${strNum}`
     return output
@@ -14,8 +15,6 @@ function generateSessionId() { //RNG untuk session ID
 function getRndInteger(min, max) { //random untuk profile picture user
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-
-
 
 let profilePictureArr = ["hackaton8/profile_picture_comp/1.jpg","hackaton8/profile_picture_comp/2.jpg","hackaton8/profile_picture_comp/3.jpg","hackaton8/profile_picture_comp/4.jpg","hackaton8/profile_picture_comp/5.jpg"] //url profile picture user
                                                                                     // 3 data user, classnya: 
@@ -43,6 +42,7 @@ let twotCounter = 0
 
 // console.log(submitDisplayNameButton)
 // console.log(document)
+
 submitDisplayNameButton.addEventListener('click', function () {
     
     console.log(`terdengar!`)
@@ -71,10 +71,8 @@ submitFeedButton.addEventListener('click', function () {
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`twot${twotCounter}`)
+    divTwot.classList.add(`Twot${twotCounter}`)
     twotCounter++
-    divTwot.innerHTML = ""
-
     /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
@@ -84,17 +82,5 @@ submitFeedButton.addEventListener('click', function () {
 })
 
 deleteTwotButton.addEventListener('click', function () {
-        
-    let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
-    let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`twot${twotCounter}`)
-    twotCounter++
-    divTwot.innerHTML = ""
 
-    /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
-    
-
-    */
-    feedList.append(divTwot)
-    alert(`Jawaban ${answer}`)
 })
