@@ -21,13 +21,21 @@ function updateUserData() {
     let displayName = sessionStorage.getItem("displayName")                             // display-name
     let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] // profile-picture
     
-    let userSessionIdElement = document.getElementById('session-id')
-    let userDisplayNameElement = document.getElementById('display-name')
-    let userProfilePictureElement = document.getElementById('profile-picture')
+    let userSessionIdElement = document.getElementsByClassName('session-id')
+    let userDisplayNameElement = document.getElementsByClassName('display-name')
+    let userProfilePictureElement = document.getElementsByClassName('profile-picture')
 
-    userSessionIdElement.innerText = sessionId
-    userDisplayNameElement.innerText = displayName
-    userProfilePictureElement.src = profilePicture
+    for(let i=0; i<userSessionIdElement.length;i++) {
+        userSessionIdElement[i].innerText = sessionId
+    }
+
+    for(let i=0;i<userDisplayNameElement.length;i++) {
+        userDisplayNameElement[i].innerText = displayName
+    }
+
+    for(let i=0;i<userProfilePictureElement.length;i++) {
+        userProfilePictureElement[i].src = profilePicture
+    }
 
     sessionStorage.removeItem("displayName");
     sessionStorage.setItem("sessionId", sessionId)
@@ -41,6 +49,7 @@ let selectTopicCheckbox = document.getElementById("topic-checkbox") // checkbox 
 
 const submitFeedButton = document.getElementById("submit-twot") // elemen button untuk submit feed
 const deleteTwotButton = document.getElementById("delete-twot")
+console.log(deleteTwotButton.parentNode)
 let twotCounter = 0
 
 submitFeedButton.addEventListener('click', function () {
@@ -60,6 +69,6 @@ submitFeedButton.addEventListener('click', function () {
 })
 
 deleteTwotButton.addEventListener('click', function () {
-        
-   
+       
+    deleteTwotButton.parentNode.remove()
 })
