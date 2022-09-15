@@ -1,39 +1,25 @@
-function generateSessionId() { //RNG untuk session ID
+//RNG untuk session ID
+function generateSessionId() {
     let strNum = ''
     let output = ''
     
-    while (strNum.length < 9){ //output 9 digit untuk digunakan
-        let number = Math.floor(Math.random()*10)
-        strNum+= number.toString();
+        while (strNum.length < 9){
+            let number = Math.floor(Math.random()*10)
+            strNum+= number.toString();
         }
     output = `#${strNum}`
     return output
 
 }
 
-function getRndInteger(min, max) { //random untuk profile picture user
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-
-let profilePictureArr = ["","","","",""] //url profile picture user
-                                                                                    // 3 data user, classnya: 
-let sessionId = generateSessionId()                                                 // session-id
-let displayName                                                                     // display-name
-let profilePicture = profilePictureArr[getRndInteger(0,profilePictureArr.length-1)] // profile-picture
-
-
-let userSessionIdElement = document.getElementById('session-id')
-let userDisplayNameElement = document.getElementById('display-name')
-let userProfilePictureElement = document.getElementById('profile-picture')
-
+let sessionId = generateSessionId()
+let displayName
 let feedBox = document.getElementById('feed-box')
-let topicSelectorRadio = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
-let selectTopicCheckbox = document.getElementById(`topic-checkbox`) // checkbox untuk menampilkan TWOT yang relevan
+let topicSelector = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
+let twotCounter = 0
 const submitDisplayNameButton = document.getElementById('submit-display-name')
 const submitFeedButton = document.getElementById('submit-feed') // elemen button untuk submit feed
 // const deleteTwotButton = document.q
-
-let twotCounter = 0
 
 submitFeedButton.addEventListener('click', function () {
     if (!feedBox.value) {
@@ -42,10 +28,8 @@ submitFeedButton.addEventListener('click', function () {
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
-    divTwot.classList.add(`twot${twotCounter}`)
+    divTwot.classList.add(`Twot${twotCounter}`)
     twotCounter++
-    divTwot.innerHTML = ""
-
     /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
@@ -63,13 +47,9 @@ submitDisplayNameButton.addEventListener('click', function () {
     if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
         return alert('Masukkan display name dengan 4-15 alphabet')
     }
-
     if (!(/^[a-zA-Z]+$/.test(displayNameCheck))) {
         return alert('Display name tidak boleh berisi angka atau symbol')
     }
-
-    userSessionIdElement = sessionId
-    userDisplayNameElement = displayNameCheck
-    userProfilePictureElement = profilePicture
+                                        // 
     window.location.href = "main.html"  // pindah ke page selanjutnya?
 })
