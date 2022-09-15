@@ -8,8 +8,8 @@ function generateSessionId() {
             let number = Math.floor(Math.random()*10)
             strNum+= number.toString();
         }
-        output = `#${strNum}`
-        console.log(output);
+    output = `#${strNum}`
+    return output
 }
 const submitFeedButton = document.getElementById('submit-feed') // elemen button untuk submit feed
 
@@ -23,7 +23,7 @@ submitFeedButton.addEventListener('click', function () {
 
     let answer = '';
     
-    if (feedBox.value) {
+    if (!feedBox.value) {
         return alert('Silahkan masukkan keluhanmu')
     }
     
