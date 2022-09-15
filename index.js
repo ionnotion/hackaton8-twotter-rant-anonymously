@@ -1,5 +1,4 @@
 //RNG untuk session ID
-
 function generateSessionId() {
     let strNum = ''
     let output = ''
@@ -10,26 +9,28 @@ function generateSessionId() {
         }
     output = `#${strNum}`
     return output
+
 }
-const submitFeedButton = document.getElementById('submit-feed') // elemen button untuk submit feed
 
 let sessionId = generateSessionId()
-let displayName = document.getElementById('displayname').value
-    
+let displayName
 let feedBox = document.getElementById('feed-box')
-let topicSelector = document.getElementById('topic-selector')
+let topicSelector = document.getElementById('topic-selector') // radio untuk memilih topic TWOT
+let twotCounter = 0
+const submitDisplayNameButton = document.getElementById('submit-display-name')
+const submitFeedButton = document.getElementById('submit-feed') // elemen button untuk submit feed
+// const deleteTwotButton = document.q
 
 submitFeedButton.addEventListener('click', function () {
-
-    let answer = '';
-    
     if (!feedBox.value) {
         return alert('Silahkan masukkan keluhanmu')
     }
     
     let feedList = document.getElementById('feed-list') // elemen yang akan menampilkan feed-feed
     let divTwot = document.createElement('div') // how to add class to an element
-    /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, Twot)
+    divTwot.classList.add(`Twot${twotCounter}`)
+    twotCounter++
+    /* rangkai elemen twot (session ID, DisplayName, ProfilePicture, TWOT)
     
     
     */
@@ -37,3 +38,19 @@ submitFeedButton.addEventListener('click', function () {
     alert(`Jawaban ${answer}`)
 })
 
+submitDisplayNameButton.addEventListener('click', function () {
+    console.log(alphabet.toUpperCase(0));
+    let displayNameCheck = submitDisplayNameButton.value
+    if (displayNameCheck === '') {
+        return alert('Silahkan masukkan nama yang ingin ditampilkan')
+    }
+    
+    if (displayNameCheck.length < 4 && displayNameCheck.length > 15) {
+        return alert('Masukkan display name dengan 4-15 alphabet')
+    }
+    if (!(/^[a-zA-Z]+$/.test(displayNameCheck))) {
+        return 'Display name tidak boleh berisi angka atau symbol'
+    }
+                                        // 
+    window.location.href = "main.html"  // pindah ke page selanjutnya?
+})
