@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="dist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./dist.css">
+  
 </head>
 
 <body class="bg-white dark:bg-dim-900">
@@ -18,16 +20,21 @@
     <!-- Left -->
     <div class="xl:w-1/5 w-20 h-full flex flex-col xl:pr-4">
       <!-- Logo -->
+
+      <!-- PERUBAHAN -->
       <a href="" class="link-active  my-2">
-        <i class="fa-brands fa-twitter text-4xl	"></i>
+        <img src="./assets/logo.png" alt="logohack" class="w-20 mr-2">
       </a>
+      <!-- PERUBAHAN END-->
+
+
       <!-- NAVIGATION  -->
       <nav class="mt-5">
-        <a href="" class="link-active mb-8">
-          <i class="fa-solid fa-house text-xl"></i>
+        <a href="" class="link-active mb-8 text-red-600">
+          <i class="fa-solid fa-house text-xl "></i>
           <span class="icon">Home</span>
         </a>
-        <a href="" class="link mb-8">
+        <a href="" class="link mb-8 text-red-600">
           <i class="fa-solid fa-hashtag text-xl"></i>
           <span class="icon">Explore</span>
         </a>
@@ -35,27 +42,32 @@
       
       <!-- NAVIGATION  END-->
       <!-- Button -->
-      <a href=""
-        class="mx-auto w-11 h-11 xl:w-full flex items-center justify-center bg-blue-400  rounded-full text-white font-bold">
-        <i class="fa-solid fa-feather text-xl block xl:hidden "></i>
-        <span class="icon xl:ml-0">Tweet</span>
-    </a>
+    <a href=""
+      class="mx-auto w-11 h-11 xl:w-full flex items-center justify-center bg-red-600  rounded-full text-white font-bold hover:bg-red-900">
+      <i class="fa-solid fa-feather text-xl block xl:hidden "></i>
+      <span class="icon xl:ml-0 ">Tweet</span>
+     </a>
     </div>
     <!-- End Left -->
     <!-- Middle -->
     <div class="w-full xl:w-1/2 h-screen overflow-y-auto">
       <!-- Sticky Header -->
 
-      <div class="flex justify-between items-center border px-4 py-3 sticky top-0 bg-white dark:bg-dim-900  border-gray-200 dark:border-gray-700">
+      <div
+        class="flex justify-between items-center border px-4 py-3 sticky top-0 bg-white dark:bg-dim-900  border-gray-200 dark:border-gray-700">
         <h4 class="text-gray-800 dark:text-gray-100 font-bold ">
           Home
         </h4>
-        <i class="fa-brands fa-twitter  text-lg  text-blue-400"></i>
+
+        <!-- PERUBAHAN -->
+        <img src="./assets/logo.png" alt="logohack" class="w-10 mr-2">
+        <!-- PERUBAHAN END-->
+
       </div>
       <!-- Sticky Header End -->
       
       <!-- Tweet Box Message-->
-      <div class=" border pb-3 border-gray-200 dark:border-dim-200 ">
+      <div class="border pb-3 border-gray-200 dark:border-dim-200 ">
         <div class="flex p-4 ">
 
           <!-- Tweet Box Message Profil -->
@@ -71,45 +83,61 @@
         </div>
 
          <!-- RADIO BELUM KELAR-->
-        <div class="flex p-4 w-full">
-          <input type="radio" id="html" name="fav_language" value="HTML" class="appearance-none checked:bg-blue-500" />
-          <label for="html">HTML</label><br>
-          <a href="" class="font-bold bg-blue-400 text-white rounded-full  px-6 ml-auto mr-1 flex items-center">
+        <div class="flex p-4">
+        
+          <div class="mr-2">
+            <input type="radio" id="gaming" name="tweet__message" value="Gaming" class="checked:bg-blue-500" />
+            <label for="gaming" class="text-white">Gaming</label><br>
+          </div>
+          <div class="mr-2">
+            <input type="radio" id="sport" name="tweet__message" value="sport" class="checked:bg-blue-500" />
+            <label for="sport" class="text-white">Sport</label><br>
+          </div>
+          <div class="mr-2">
+            <input type="radio" id="musik__and__movie" name="tweet__message" value="musik__and__movie" class="checked:bg-blue-500" />
+            <label for="musik__and__movie" class="text-white">Music And Movie</label><br>
+          </div>
+          
+       
+          <button href="" class="font-bold bg-red-600 text-white rounded-full  px-6 ml-auto mr-1 flex items-center hover:bg-red-900">
             Tweet
-          </a>
+          </button>
+
+          <!-- test -->
+          
         </div>
 
       </div>
       <!-- Tweet Box Message End -->
       
       <!-- Tweet -->
-      <div class="feed-list border border-gray-200 dark:border-dim-200 cursor-pointer pb-4 ">
+      <div class="border border-gray-200 dark:border-dim-200 cursor-pointer pb-4 ">
 
         <!-- PROFIL-->
         <div class="flex p-4 pb-0">
-          <img id="profile-picture" class="h-9 w-9 rounded-full "
+          <img class="h-9 w-9 rounded-full "
             src="https://pbs.twimg.com/profile_images/1444753598328496128/hCCopfyz_400x400.jpg" alt="" />
-          <p id="display-name" class="ml-2 flex flex-shrink-0 items-center font-medium text-gray-800 dark:text-white">
-            masih beta ngab
-            <span id="session-id" class="ml-1 text-sm leading-5  text-gray-400">
-              @masihbetangab
-            </span>
+            <div class="xl:flex flex-col ml-2">
+              <h4 class="text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
+              <p class="text-gray-400 text-sm">@bangjago</p>
+            </div>
           </p>
-        </div>        
+        </div>
         <!-- PROFIL-->
         
          <!-- CARD TWEET-->
-        <div class="twot pl-8 xl:pl-16 pr-4">
-          <p class="twot w-auto font-medium text-gray-800 dark:text-white ">
+        <div class="pl-8 xl:pl-16">
+          <p class="w-auto font-medium text-gray-800 dark:text-white">
             pesulap merah adu mekanik  sama samsudin
           </p>
-          <img class="twot rounded-2xl border border-gray-600 my-3 mr-2 w-full"
-            src="https://awsimages.detik.net.id/community/media/visual/2022/07/27/pesulap-merah-dan-gus-samsudin_43.jpeg?w=700&q=90"
-            alt="" />
+          <button href="" class="font-bold bg-red-600  text-white rounded-full mt-6 px-6  flex items-center hover:bg-red-900">
+            Delete
+          </button>
         </div>
         <!-- CARD TWEET END-->
 
       </div>
+      
       <!-- Tweet End -->
 
     </div>
@@ -119,12 +147,18 @@
       
        <!--USER PROFIL-->
        <div class="w-14 xl:w-full mx-auto mt-auto flex  justify-betwee mb-2  rounded-full p-2 cursor-pointer ">
-        <img id="profile-picture" class="w-10 h-10 rounded-full"
+        <img class="w-10 h-10 rounded-full"
           src="https://pbs.twimg.com/profile_images/1444753598328496128/hCCopfyz_400x400.jpg" alt="" />
+
+
+          <!-- PERUBAHAN -->
         <div class="xl:flex flex-col ml-2">
-          <h4 id="display-name" class="text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
-          <p id="session-id " class="text-gray-400 text-sm">@bangjago</p>
+          <h4 class="text-gray-800 dark:text-white font-bold text-sm">masih beta ngab</h4>
+          <p class="text-gray-400 text-sm">@bangjago</p>
         </div>
+        <!-- PERUBAHAN END-->
+
+
       </div>
       <!-- USER PROFIL END-->
       
@@ -160,7 +194,6 @@
     </div>
 
   </div>
-  <script src="index.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </body>
-
 </html>
