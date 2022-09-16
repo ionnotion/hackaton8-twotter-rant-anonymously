@@ -44,7 +44,7 @@ displayNameInputElement.addEventListener('input', function () {
     console.log("isNotEmpty:",isNotEmpty," isMoreThan4:",is4OrMore," isAlphabet: ",isAlphabet)
 
     if(isNotEmpty && is4OrMore && isAlphabet) {
-        actionName.action = 'index.html'
+        actionName.action = './main/index.html'
     } else {
         actionName.action = ""
     }
