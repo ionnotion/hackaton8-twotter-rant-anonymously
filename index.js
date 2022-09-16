@@ -42,15 +42,24 @@ function updateUserData() {
 }
 
 updateUserData()
+// console.log(feedBox)
 
 let feedBox = document.getElementById("feed-box")
-console.log(feedBox)
-let selectTopicCheckbox = document.getElementById("topic-checkbox") // checkbox untuk menampilkan TWOT yang relevan
+
+// let selectTopicCheckbox = document.getElementById("topic-checkbox") // checkbox untuk menampilkan TWOT yang relevan
+let selectTopicGamingElement = document.getElementById("topic-gaming")
+let selectTopicSportsElement = document.getElementById("topic-sports")
+let selectTopicMusicMoviesElement = document.getElementById("topic-musicmovies")
+
+addEventListener
 
 let twotTextInputElement = document.getElementById("twotTextArea")
 
 const submitFeedButton = document.getElementById("submit-twot") // elemen button untuk submit feed
 const deleteTwotButton = document.getElementById("delete-twot")
+
+
+
 console.log(twotTextInputElement)
 let twotCounter = 1
 
@@ -59,9 +68,35 @@ submitFeedButton.addEventListener('click', function () {
         return alert('Silahkan masukkan keluhanmu')
     }
      // radio untuk memilih topic TWOT
-    let topicSelectorGaming = document.getElementById("gaming").checked
-    let topicSelectorSport = document.getElementById("sport").checked
-    let topicSelectorMusicMovies = document.getElementById("musik__and__movie").checked
+let topicSelectorGamingElement = document.getElementById("gaming").checked
+
+topicSelectorGamingElement.addEventListener('input', function () {
+        if(topicSelectorGaming.value) {
+
+        } else {
+
+        }
+    })
+
+let topicSelectorSportsElement = document.getElementById("sport").checked
+
+topicSelectorSportsElement.addEventListener('input', function () {
+        if(topicSelectorSportsElement.value) {
+
+        } else {
+
+        }
+    })
+
+let topicSelectorMusicMoviesElement = document.getElementById("musik__and__movie").checked
+
+topicSelectorMusicMoviesElement.addEventListener('input', function () {
+        if(topicSelectorMusicMoviesElement.value) {
+
+        } else {
+
+        }
+    })
     
     let twotTopic = 0
     let textInput = twotTextInputElement.value
@@ -112,7 +147,7 @@ submitFeedButton.addEventListener('click', function () {
     topicSelectorGaming.removeAttribute('checked')
     topicSelectorSport.removeAttribute('checked')
     topicSelectorMusicMovies.removeAttribute('checked')
-    alert("U WOTTED!")
+    alert("U WOTTED M8!")
 })
 
 deleteTwotButton.addEventListener('click', function () {
