@@ -56,9 +56,10 @@ addEventListener
 let twotTextInputElement = document.getElementById("twotTextArea")
 
 const submitFeedButton = document.getElementById("submit-twot") // elemen button untuk submit feed
-const deleteTwotButton = document.getElementById("delete-twot")
+// const deleteTwotButton = document.getElementById("delete-twot")
 
 
+const deleteTwotButton = document.getElementsByClassName("delete-twot")
 
 console.log(twotTextInputElement)
 let twotCounter = 1
@@ -69,9 +70,9 @@ submitFeedButton.addEventListener('click', function () {
     }
      // radio untuk memilih topic TWOT
 
-let topicSelectorGaming = document.getElementById("gaming").checked
-let topicSelectorSport = document.getElementById("sport").checked
-let topicSelectorMusicMovies = document.getElementById("musik__and__movie").checked
+let topicSelectorGaming = document.getElementById("gaming")
+let topicSelectorSport = document.getElementById("sport")
+let topicSelectorMusicMovies = document.getElementById("musik__and__movie")
 
 // topicSelectorGamingElement.addEventListener('input', function () {
 //         if(topicSelectorGaming.value) {
@@ -104,9 +105,9 @@ let topicSelectorMusicMovies = document.getElementById("musik__and__movie").chec
 
     // console.log(topicSelectorGaming,topicSelectorSport,topicSelectorMusicMovies)
     
-    if(topicSelectorGaming) twotTopic = "gaming"
-    if(topicSelectorSport) twotTopic = "sport"
-    if(topicSelectorMusicMovies) twotTopic = "musicnmovies"
+    if(topicSelectorGaming.checked) twotTopic = "gaming"
+    if(topicSelectorSport.checked) twotTopic = "sport"
+    if(topicSelectorMusicMovies.checked) twotTopic = "musicnmovies"
 
     console.log(twotTopic)
     
@@ -118,6 +119,7 @@ let topicSelectorMusicMovies = document.getElementById("musik__and__movie").chec
     let divTwot = document.createElement('div') // how to add class to an element
     divTwot.classList.add(`Twot${twotCounter}`)
     divTwot.innerHTML = `
+          <div id="twot${twotCounter}">  
           <div class="flex p-4 pb-0">
           <img id="" class="profile-picture h-9 w-9 rounded-full "
           src="${profilePicture}" alt="" />
@@ -134,9 +136,10 @@ let topicSelectorMusicMovies = document.getElementById("musik__and__movie").chec
           <p id="twot0" class="w-auto font-medium text-gray-800 dark:text-white">
           ${textInput} #${twotTopic}
           </p>
-          <button id="delete-twot" href="" class="font-bold bg-red-600  text-white rounded-full mt-6 px-6  flex items-center hover:bg-red-900">
+          <button onclick="deleteButton('twot${twotCounter}')" id="twot${twotCounter}" href="" class="delete-twot font-bold bg-red-600  text-white rounded-full mt-6 px-6  flex items-center hover:bg-red-900">
           Delete
           </button>
+          </div>
           </div>
           <!-- CARD TWEET END-->`
 
@@ -145,20 +148,50 @@ let topicSelectorMusicMovies = document.getElementById("musik__and__movie").chec
     feedList.prepend(divTwot) 
     twotCounter++
     twotTextInputElement.value = ""
-    topicSelectorGaming = false
-    topicSelectorSport = false
-    topicSelectorMusicMovies = false
+    topicSelectorGaming.checked = false
+    topicSelectorSport.checked = false
+    topicSelectorMusicMovies.checked = false
     alert("U WOTTED M8!")
 })
 
-deleteTwotButton.addEventListener('click', function () {
+let deleteElement = document.getElementById(deleteTwotButton.id)
+var functionDeleteTwot = function() {
 
     console.log('click!')
+    console.log(deleteTwotButton)
+    console.log(deleteElement)
     if (confirm("Delete WOT?")) {
         let text = `deleted WOT`
-        deleteTwotButton.parentNode.childNodes[1].innerText = text
-        deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
-        deleteTwotButton.parentNode.childNodes[1].style.fontWeight = "100";
-        deleteTwotButton.remove()
+        // let deletedTwot = document.getElementById()
+        // deleteTwotButton.parentNode.childNodes[1].innerText = text
+        // deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
+        // deleteTwotButton.parentNode.childNodes[1].style.fontWeight = "100";
+        deleteElement.remove()
     }
-})
+};
+
+var deleteButton = function (id) {
+    // let nameOfFunction = this[event.target.name]
+    console.log(">>>>>", id)
+    let deleteElement = document.getElementById(id)
+    // deleteElement = document.getElementById(this.id)
+    // console.log(this)
+    // console.log(deleteElement)
+    if (confirm("Delete WOT?")) {
+        let text = `deleted WOT`
+        // let deletedTwot = document.getElementById()
+        // deleteTwotButton.parentNode.childNodes[1].innerText = text
+        // deleteTwotButton.parentNode.childNodes[1].style.fontStyle = "italic";
+        // deleteTwotButton.parentNode.childNodes[1].style.fontWeight = "100";
+        deleteElement.remove()
+    }
+}
+
+for (var i = 0; i < deleteTwotButton.length; i++) {
+    deleteElement = document.getElementById(deleteTwotButton[i].id)
+    deleteTwotButton[i].addEventListener('click', functionDeleteTwot, false);
+}
+
+// deleteTwotButton.addEventListener('click', function () {
+
+// })
