@@ -68,40 +68,41 @@ submitFeedButton.addEventListener('click', function () {
         return alert('Silahkan masukkan keluhanmu')
     }
      // radio untuk memilih topic TWOT
-let topicSelectorGamingElement = document.getElementById("gaming").checked
 
-topicSelectorGamingElement.addEventListener('input', function () {
-        if(topicSelectorGaming.value) {
+let topicSelectorGaming = document.getElementById("gaming").checked
+let topicSelectorSport = document.getElementById("sport").checked
+let topicSelectorMusicMovies = document.getElementById("musik__and__movie").checked
 
-        } else {
+// topicSelectorGamingElement.addEventListener('input', function () {
+//         if(topicSelectorGaming.value) {
 
-        }
-    })
+//         } else {
 
-let topicSelectorSportsElement = document.getElementById("sport").checked
+//         }
+//     })
 
-topicSelectorSportsElement.addEventListener('input', function () {
-        if(topicSelectorSportsElement.value) {
 
-        } else {
+// topicSelectorSportsElement.addEventListener('input', function () {
+//         if(topicSelectorSportsElement.value) {
 
-        }
-    })
+//         } else {
 
-let topicSelectorMusicMoviesElement = document.getElementById("musik__and__movie").checked
+//         }
+//     })
 
-topicSelectorMusicMoviesElement.addEventListener('input', function () {
-        if(topicSelectorMusicMoviesElement.value) {
 
-        } else {
+// topicSelectorMusicMoviesElement.addEventListener('input', function () {
+//         if(topicSelectorMusicMoviesElement.value) {
 
-        }
-    })
+//         } else {
+
+//         }
+//     })
     
     let twotTopic = 0
     let textInput = twotTextInputElement.value
 
-    console.log(topicSelectorGaming,topicSelectorSport,topicSelectorMusicMovies)
+    // console.log(topicSelectorGaming,topicSelectorSport,topicSelectorMusicMovies)
     
     if(topicSelectorGaming) twotTopic = "gaming"
     if(topicSelectorSport) twotTopic = "sport"
@@ -144,9 +145,9 @@ topicSelectorMusicMoviesElement.addEventListener('input', function () {
     feedList.prepend(divTwot) 
     twotCounter++
     twotTextInputElement.value = ""
-    topicSelectorGaming.removeAttribute('checked')
-    topicSelectorSport.removeAttribute('checked')
-    topicSelectorMusicMovies.removeAttribute('checked')
+    topicSelectorGaming = false
+    topicSelectorSport = false
+    topicSelectorMusicMovies = false
     alert("U WOTTED M8!")
 })
 
